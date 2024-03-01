@@ -1,0 +1,58 @@
+---
+interface Props {}
+
+// const { href, title, body } = Astro.props;
+---
+
+<header>
+  <h1><a href="/">Евгения Зюзина • Фотограф в Санкт-Петербурге и Москве</a></h1>
+  <nav>
+    <ul>
+      <li><a href="/details">Условия</a></li>
+      <li><a href="/contact">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
+  }
+
+  nav ul li:not(:last-of-type)::after {
+    content: "/";
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  nav a {
+    padding: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+
+  @media (max-width: 800px) {
+    header {
+      flex-direction: column;
+    }
+  }
+</style>

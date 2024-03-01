@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import vImage from "./v.jpg";
+import hImage from "./h.jpg";
+
+interface Props {}
+
+// const { href, title, body } = Astro.props;
+---
+
+<ul class="photo-list">
+  <li>
+    <Image src={vImage} alt="" />
+  </li>
+  <li>
+    <Image src={vImage} alt="" />
+  </li>
+  <li>
+    <Image src={vImage} alt="" />
+  </li>
+  <li>
+    <Image src={vImage} alt="" />
+  </li>
+  <li>
+    <Image src={hImage} alt="" />
+  </li>
+  <li>
+    <Image src={hImage} alt="" />
+  </li>
+  <li>
+    <Image src={hImage} alt="" />
+  </li>
+  <li>
+    <Image src={hImage} alt="" />
+  </li>
+</ul>
+
+<style>
+  .photo-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .photo-list img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1000px) {
+    .photo-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .photo-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
