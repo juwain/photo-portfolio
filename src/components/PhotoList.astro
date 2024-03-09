@@ -20,9 +20,16 @@ const imagesPaths = Object.keys(images).map((key) => key);
   }
 </ul>
 
-<script>
+<!-- <script>
   import "glightbox/dist/css/glightbox.min.css";
   import GLightbox from "glightbox";
+
+  GLightbox();
+</script> -->
+
+<script type="module">
+  import "../../node_modules/glightbox/dist/css/glightbox.css";
+  import "../../node_modules/glightbox/dist/js/glightbox.js";
 
   GLightbox();
 </script>
