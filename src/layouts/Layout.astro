@@ -17,7 +17,9 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="container">
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
@@ -123,5 +125,19 @@ const { title } = Astro.props;
   }
   body {
     margin: 0;
+  }
+</style>
+<style>
+  .container {
+    margin: auto;
+    padding: 1rem 3rem;
+    width: clamp(320px, 100%, 1620px);
+    color: #212121;
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      padding: 1rem;
+    }
   }
 </style>

@@ -1,4 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import { imageService } from "@unpic/astro/service";
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  image: {
+    service: imageService({
+      fallbackService: "netlify",
+      placeholder: "blurhash",
+      layout: "constrained",
+    }),
+  },
+});

@@ -1,45 +1,37 @@
 ---
-import { Image } from "astro:assets";
-import vImage from "./v.jpg";
-import hImage from "./h.jpg";
+import Photo from "./Photo.astro";
 
-interface Props {}
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}"
+);
 
-// const { href, title, body } = Astro.props;
+const imagesPaths = Object.keys(images).map((key) => key);
 ---
 
 <ul class="photo-list">
-  <li>
-    <Image src={vImage} alt="" />
-  </li>
-  <li>
-    <Image src={vImage} alt="" />
-  </li>
-  <li>
-    <Image src={vImage} alt="" />
-  </li>
-  <li>
-    <Image src={vImage} alt="" />
-  </li>
-  <li>
-    <Image src={hImage} alt="" />
-  </li>
-  <li>
-    <Image src={hImage} alt="" />
-  </li>
-  <li>
-    <Image src={hImage} alt="" />
-  </li>
-  <li>
-    <Image src={hImage} alt="" />
-  </li>
+  {
+    imagesPaths.map((path) => (
+      <li>
+        <a href={path} class="glightbox">
+          <Photo path={path} altText="" />
+        </a>
+      </li>
+    ))
+  }
 </ul>
+
+<script>
+  import "glightbox/dist/css/glightbox.min.css";
+  import GLightbox from "glightbox";
+
+  GLightbox();
+</script>
 
 <style>
   .photo-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
+    gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -54,12 +46,7 @@ interface Props {}
   @media (max-width: 1000px) {
     .photo-list {
       grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .photo-list {
-      grid-template-columns: 1fr;
+      gap: 1rem;
     }
   }
 </style>
