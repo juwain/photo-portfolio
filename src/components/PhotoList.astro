@@ -12,20 +12,11 @@ const imagesPaths = Object.keys(images).map((key) => key);
   {
     imagesPaths.map((path) => (
       <li>
-        <a href={path} class="glightbox">
-          <Photo path={path} altText="" />
-        </a>
+        <Photo path={path} altText="" />
       </li>
     ))
   }
 </ul>
-
-<!-- <script>
-  import "glightbox/dist/css/glightbox.min.css";
-  import GLightbox from "glightbox";
-
-  GLightbox();
-</script> -->
 
 <link
   rel="stylesheet"
@@ -35,7 +26,21 @@ const imagesPaths = Object.keys(images).map((key) => key);
 <script type="module">
   import "https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js";
 
-  GLightbox();
+  const elements = [];
+
+  document.querySelectorAll(".photo-list img").forEach((element, index) => {
+    element.addEventListener("click", () => {
+      gallery.openAt(index);
+    });
+
+    elements.push({
+      href: element.src,
+    });
+  });
+
+  const gallery = GLightbox({
+    elements,
+  });
 </script>
 
 <style>
