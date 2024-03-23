@@ -1,11 +1,9 @@
 ---
-interface Props {}
 
-// const { href, title, body } = Astro.props;
 ---
 
 <header>
-  <h1><a href="/">Евгения Зюзина • Фотограф в Санкт-Петербурге и Москве</a></h1>
+  <h1><a href="/">Евгения Зюзина | Фотограф в Санкт‑Петербурге и Москве</a></h1>
   <nav>
     <ul>
       <li><a href="/details">Условия</a></li>
@@ -16,6 +14,7 @@ interface Props {}
 <style>
   header {
     display: flex;
+    column-gap: 1rem;
     justify-content: space-between;
     margin-bottom: 3rem;
     position: sticky;
@@ -23,10 +22,13 @@ interface Props {}
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 1;
     min-height: 50px;
-    align-items: center;
+    align-items: start;
     padding: 1rem 0;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+
+    font-size: calc(1.2rem + 0.25vw);
+    line-height: 1.8rem;
   }
 
   @media (max-width: 800px) {
@@ -35,6 +37,7 @@ interface Props {}
       position: static;
       gap: 1rem;
       align-items: start;
+      margin-bottom: 1rem;
     }
   }
 
@@ -45,8 +48,8 @@ interface Props {}
   }
 
   h1 {
-    font-size: 1rem;
-    line-height: 1.2rem;
+    font-size: inherit;
+    line-height: inherit;
     font-weight: 400;
     margin: 0;
   }
@@ -62,10 +65,8 @@ interface Props {}
     list-style: none;
   }
 
-  nav ul li:not(:last-of-type)::after {
-    content: "/";
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+  nav ul li:not(:last-of-type) {
+    margin-right: 1rem;
   }
 
   nav a {
