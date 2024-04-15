@@ -53,6 +53,14 @@ const imagesPaths = Object.keys(images).map((key) => key);
     padding: 0;
   }
 
+  .photo-list li {
+    padding: 0;
+  }
+
+  .photo-list li::before {
+    content: "";
+  }
+
   .photo-list img {
     width: 100%;
     height: 100%;
