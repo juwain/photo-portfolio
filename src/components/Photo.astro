@@ -21,15 +21,7 @@ if (!images[path])
 <Image src={images[path]()} alt={altText} class="photo" />
 
 <style>
-  .photo {
-    transition-property: filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
-    filter: brightness(0.9);
-  }
-
   .photo:hover {
-    filter: brightness(1);
     cursor: zoom-in;
   }
 </style>
