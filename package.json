@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.6",
+    "@astrojs/check": "^0.9.3",
     "@unpic/astro": "^0.0.44",
-    "astro": "^4.4.8",
+    "astro": "^4.15.4",
     "glightbox": "^3.2.0",
     "typescript": "^5.3.3"
   },
