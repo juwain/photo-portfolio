@@ -1,0 +1,247 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="UX-писатель"
+    />
+    <meta name="author" content="UX-писатель Евгения Зюзина" />
+    <meta
+      name="keywords"
+      content="UX-writing, UX-писатель"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "//mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(91847792, "init", {
+        accurateTrackBounce: true,
+        trackLinks: true,
+        webvisor: true,
+        clickmap: true,
+        params: { __ym: { isFromApi: "yesIsFromApi" } },
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/91847792"
+          style="position:absolute; left:-9999px;"
+          alt=""
+        />
+      </div></noscript
+    > -->
+    <!-- /Yandex.Metrika counter -->
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+</html>
+<style is:global>
+  html {
+    font-family: system-ui, sans-serif;
+    background: #ffffff;
+  }
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  body {
+    margin: 0;
+    font-family: "GolosTextWeb", sans-serif;
+  }
+
+  main {
+    font-size: calc(1rem + 0.25vw);
+    line-height: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.5rem 0 0 1rem;
+  }
+
+  main ul li::before {
+    content: "–";
+    margin-left: -1rem;
+    position: absolute;
+  }
+
+  main h2 {
+    font-size: calc(1.2rem + 0.25vw);
+    font-weight: 500;
+  }
+
+  a {
+    cursor: pointer;
+    color: inherit;
+    word-wrap: break-word;
+    text-decoration: inherit;
+
+    border-bottom: 0.05em solid;
+    border-color: rgba(55,53,47,.4);
+    opacity: 0.7;
+  }
+
+  .callout {
+    display: flex;
+    width: 100%;
+    border-radius: 4px;
+    background: rgb(241, 241, 239);
+    padding: 16px 16px 16px 12px;
+    margin: 16px 0;
+    gap: 0.5em;
+  }
+
+  .gray {
+    color: rgba(120, 119, 116, 1);
+    fill: rgba(120, 119, 116, 1);
+  }
+
+  @font-face {
+    font-family: "GolosTextWeb";
+    src:
+      url("/fonts/golos-text_regular.woff2") format("woff2"),
+      url("/fonts/golos-text_regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "GolosTextWeb";
+    src:
+      url("/fonts/golos-text_medium.woff2") format("woff2"),
+      url("/fonts/golos-text_medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+<style>
+  .container {
+    margin: auto;
+    padding: 1rem 2rem 2rem;
+    width: clamp(320px, 100%, 768px);
+    color: #212121;
+  }
+</style>
